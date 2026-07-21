@@ -3,7 +3,7 @@ pipeline {
 	agent any
 	
 	environment {
-		IMAGE_NAME = "arturasryan/jenkins-python-app:latest"
+		IMAGE_NAME = "arturasryan/jenkins-python-app:${params.VERSION}"
 	}
 
 	parameters {
