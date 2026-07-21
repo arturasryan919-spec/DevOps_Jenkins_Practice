@@ -1,24 +1,34 @@
 pipeline {
+	
 	agent any
-
+	
 	stages {
-		
-		stage('Hello') {
+	
+		stage('Build docker image') {
+
 			steps{
-				echo 'hello Jenkins'
+				sh '''
+				docker build -t jenkins-python-app .
+				'''
 			}
+	
 		}
 
-		stage('test') {
+		stage('Run container'){
+
 			steps{
-				echo 'testing.....'
-			}
+				sh '''
+				docker stop jenkins-python-container || true
+				docker rm jenkins-python-container || true
+				
+				docker run -d \
+				--name jenkins-python-container \
+				-p 5000:5000 \
+				jenkins-python-app
+				'''
+				
+			}		
+	
 		}
-		stage('succesfully'){
-			steps{
-				echo 'successfuly'
-			}
-		}
-	}
+
 }
-
