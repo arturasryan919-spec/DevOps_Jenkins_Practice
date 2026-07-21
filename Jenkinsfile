@@ -25,8 +25,8 @@ pipeline {
 
 	post{
 	
-		succes {
-			echo "BUILD SUCCES"
+		success {
+			echo "BUILD SUCCESS"
 			echo "ENVIRONMENT: ${params.ENVIRONMENT}"
 			echo "VERSION: ${params.VERSION}"
 		}
