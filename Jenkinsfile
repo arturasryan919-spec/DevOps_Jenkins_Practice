@@ -96,12 +96,12 @@ pipeline {
 				docker stop jenkins-python-container || true
 				docker rm jenkins-python-container || true
 				
-				docker pull arturasryan/jenkins-python-app:latest
+				docker pull arturasryan/jenkins-python-app:${VERSION}
 				docker run -d \
 				--restart unless-stopped \
 				--name jenkins-python-container \
 				-p 5000:5000 \
-				arturasryan/jenkins-python-app:latest
+				arturasryan/jenkins-python-app:${VERSION}
 				'''
 				
 			}		
