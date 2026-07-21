@@ -23,6 +23,22 @@ pipeline {
 
 	}	
 
+	post{
+	
+		succes {
+			echo "BUILD SUCCES"
+			echo "ENVIRONMENT: ${params.ENVIRONMENT}
+			echo "VERSION: ${params.VERSION}
+		}
+		failure {
+			echo "BUILD FAILED"
+		}
+		always {
+			echo "Pipeline finished"
+		}
+	
+	}
+
 	stages {
 		
 		stage('Build docker image') {
