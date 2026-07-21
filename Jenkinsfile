@@ -6,6 +6,22 @@ pipeline {
 		IMAGE_NAME = "arturasryan/jenkins-python-app:latest"
 	}
 
+	parameters {
+
+		choice(
+			name: 'ENVIRONMENT',
+			choices: ['dev', 'stage', 'production'],
+			description: 'Choose deployment environment'
+		)
+
+		string(
+			name: 'VERSION',
+			defaultValue: 'latest',
+			description: 'Docker image version'
+		)
+
+
+	}	
 
 	stages {
 		
