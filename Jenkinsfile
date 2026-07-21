@@ -27,7 +27,7 @@ pipeline {
 	
 		succes {
 			echo "BUILD SUCCES"
-			echo "ENVIRONMENT: ${params.ENVIRONMENT}
+			echo "ENVIRONMENT: ${params.ENVIRONMENT},
 			echo "VERSION: ${params.VERSION}
 		}
 		failure {
