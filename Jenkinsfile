@@ -64,11 +64,8 @@ pipeline {
 				docker stop jenkins-python-container || true
 				docker rm jenkins-python-container || true
 				
-				docker run -d \
-				--restart unless-stopped \
-				--name jenkins-python-container \
-				-p 5000:5000 \
-				jenkins-python-app
+				docker pull arturasryan/jenkins-python-app:latest
+				docker run arturasryan/jenkins-python-app:latest
 				'''
 				
 			}		
